@@ -12,6 +12,7 @@ const rootDir = path.dirname(process.mainModule.filename);
 
 const indexrouter = require("./routes/routes");
 const authorRouter = require("./routes/authors");
+const bookRouter = require("./routes/books");
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
@@ -33,6 +34,7 @@ db.once("open", () => console.log("Connected to Mongoose"));
 
 app.use("/", indexrouter);
 app.use("/authors", authorRouter);
+app.use("/books", bookRouter);
 
 const port = process.env.PORT || 3000;
 

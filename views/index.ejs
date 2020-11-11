@@ -1,5 +1,7 @@
-Middles
-<h3>MyBary</h3>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptatem minima, incidunt ullam nesciunt explicabo
-    at. Saepe maxime perferendis doloribus incidunt, quibusdam dolorem nobis debitis, mollitia odit quae voluptatem.
-    Voluptatem!</p>
+<h2>Recently Added</h2>
+
+<div>
+    <% books.forEach(book => { %>
+    <img height="150" width="100" src="<%= book.coverImagePath %>">
+    <% }) %>
+</div>
