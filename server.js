@@ -10,9 +10,11 @@ const mongoose = require("mongoose");
 
 const rootDir = path.dirname(process.mainModule.filename);
 
-const router = require("./routes/routes");
+const indexrouter = require("./routes/routes");
+const authorRouter = require("./routes/authors");
 
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: false }));
 app.set("views", path.join(rootDir, "views"));
 app.set("layout", "layouts/layout");
 
@@ -29,7 +31,8 @@ const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Connected to Mongoose"));
 
-app.use("/", router);
+app.use("/", indexrouter);
+app.use("/authors", authorRouter);
 
 const port = process.env.PORT || 3000;
 
